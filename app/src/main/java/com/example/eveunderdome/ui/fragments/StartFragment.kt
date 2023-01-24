@@ -1,32 +1,41 @@
-package com.example.eveunderdome
+package com.example.eveunderdome.ui.fragments
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
-import androidx.activity.viewModels
-import androidx.lifecycle.ViewModel
+import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import com.example.eveunderdome.R
 import com.example.eveunderdome.model.Good
 import com.example.eveunderdome.model.Market
 import com.example.eveunderdome.viewmodel.MarketViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class StartFragment : Fragment() {
 
     private val marketViewModel: MarketViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_main, container, false)
 
-        val textList: TextView = this.findViewById(R.id.market_list)
+        val textList: TextView = view.findViewById(R.id.market_list)
 
-        marketViewModel.getMarketObservation().observe(this){
+        marketViewModel.getMarketObservation().observe(viewLifecycleOwner){
             showMarketInformation(it, textList)
+        }
+
+        textList.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.go_to_connectionFragment)
         }
 
         marketViewModel.getMarketRemote()
 
+
+        return view
     }
 
     private fun showMarketInformation(market: Market, textView: TextView){
@@ -40,5 +49,4 @@ class MainActivity : AppCompatActivity() {
         val result = "${kernite.adjustedPrice}  ${kernite.averagePrice}  ${kernite.typeId}"
         textView.text = result
     }
-
 }

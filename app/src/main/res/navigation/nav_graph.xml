@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.eveunderdome.ui.fragments.StartFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/go_to_connectionFragment"
+            app:destination="@id/connectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.eveunderdome.ui.fragments.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/connectionFragment"
+        android:name="com.example.eveunderdome.ui.fragments.ConnectionFragment"
+        android:label="fragment_connection"
+        tools:layout="@layout/fragment_connection" >
+        <action
+            android:id="@+id/go_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+</navigation>
