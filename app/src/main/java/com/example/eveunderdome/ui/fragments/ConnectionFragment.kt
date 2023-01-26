@@ -17,9 +17,14 @@ class ConnectionFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_connection, container, false)
 
         val button  = view.findViewById<Button>(R.id.connection_button)
+        val wpButton = view.findViewById<Button>(R.id.wp_password)
 
         button.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.go_to_menuFragment)
+        }
+
+        wpButton.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.go_to_wrongPasswordDialogFragment)
         }
 
         return view

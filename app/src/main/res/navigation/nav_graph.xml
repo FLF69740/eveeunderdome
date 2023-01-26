@@ -27,5 +27,16 @@
         <action
             android:id="@+id/go_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/go_to_wrongPasswordDialogFragment"
+            app:destination="@id/wrongPasswordDialogFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/wrongPasswordDialogFragment"
+        android:name="com.example.eveunderdome.ui.popup.WrongPasswordDialogFragment">
+        <argument android:name="myarg" android:defaultValue="@null"/>
+        <action
+            android:id="@+id/action_wrongPasswordDialogFragment_to_connectionFragment"
+            app:destination="@id/connectionFragment" />
+    </dialog>
 </navigation>
