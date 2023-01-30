@@ -24,7 +24,7 @@ class ConnectionFragment : Fragment() {
         }
 
         wpButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.go_to_wrongPasswordDialogFragment)
+            Navigation.findNavController(view).navigate(R.id.action_global_globalFragment)
         }
 
         return view

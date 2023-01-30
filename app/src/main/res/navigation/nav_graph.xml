@@ -25,6 +25,7 @@
         android:label="fragment_connection"
         tools:layout="@layout/fragment_connection" >
         <action
+            app:popUpTo="@id/startFragment"
             android:id="@+id/go_to_menuFragment"
             app:destination="@id/menuFragment" />
         <action
@@ -39,4 +40,13 @@
             android:id="@+id/action_wrongPasswordDialogFragment_to_connectionFragment"
             app:destination="@id/connectionFragment" />
     </dialog>
+
+    <fragment
+        android:id="@+id/globalFragment"
+        android:name="com.example.eveunderdome.ui.fragments.GlobalFragment"
+        android:label="fragment_global"
+        tools:layout="@layout/fragment_global" />
+    <action
+        android:id="@+id/action_global_globalFragment"
+        app:destination="@id/globalFragment"/>
 </navigation>
