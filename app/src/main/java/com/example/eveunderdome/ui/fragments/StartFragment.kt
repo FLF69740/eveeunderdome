@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.eveunderdome.R
 import com.example.eveunderdome.model.Good
 import com.example.eveunderdome.model.Market
@@ -24,12 +27,14 @@ class StartFragment : Fragment() {
 
         val textList: TextView = view.findViewById(R.id.market_list)
 
+
+
         marketViewModel.getMarketObservation().observe(viewLifecycleOwner){
             showMarketInformation(it, textList)
         }
 
         textList.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.go_to_connectionFragment)
+            findNavController().navigate(R.id.go_to_connectionFragment)
         }
 
         marketViewModel.getMarketRemote()
