@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.eveunderdome.ui.fragments.StartFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/go_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/go_to_connectionFragment"
+            app:destination="@id/connectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.eveunderdome.ui.fragments.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/connectionFragment"
+        android:name="com.example.eveunderdome.ui.fragments.ConnectionFragment"
+        android:label="fragment_connection"
+        tools:layout="@layout/fragment_connection" >
+        <action
+            android:id="@+id/go_to_wrongPasswordDialogFragment"
+            app:destination="@id/wrongPasswordDialogFragment" />
+        <action
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/back_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/wrongPasswordDialogFragment"
+        android:name="com.example.eveunderdome.ui.popup.WrongPasswordDialogFragment">
+        <argument android:name="myarg" android:defaultValue="@null"/>
+        <action
+            android:id="@+id/action_wrongPasswordDialogFragment_to_connectionFragment"
+            app:destination="@id/connectionFragment" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/globalFragment"
+        android:name="com.example.eveunderdome.ui.fragments.GlobalFragment"
+        android:label="fragment_global"
+        tools:layout="@layout/fragment_global" >
+        <argument
+            android:name="myNumber"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_globalFragment"
+        app:destination="@id/globalFragment"/>
+</navigation>
