@@ -58,7 +58,7 @@ class MenuFragment : Fragment() {
         if (name != null) {
             marketViewModel.getMarketRemote()
         } else {
-            findNavController().navigate(R.id.connectionFragment)
+         //   findNavController().navigate(R.id.connectionFragment)
         }
     }
 }
