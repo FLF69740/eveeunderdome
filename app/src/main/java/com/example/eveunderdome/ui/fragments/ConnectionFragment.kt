@@ -28,23 +28,27 @@ class ConnectionFragment : Fragment() {
 
     private val marketViewModel: MarketViewModel by viewModels()
     private lateinit var connectionButton: Button
+    private lateinit var warpButton: Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_connection, container, false)
 
         connectionButton = view.findViewById<Button>(R.id.connection_button)
+        warpButton = view.findViewById<Button>(R.id.warp_button_id)
         val wpButton = view.findViewById<Button>(R.id.wp_password)
 
         checkFireBaseUser()?.let {
-            changeButtonStateWhenUserConnected(button = connectionButton)
+            changeButtonStateWhenUserConnected(button = connectionButton, warp = warpButton)
         }
 
         connectionButton.setOnClickListener{
             if (checkFireBaseUser() == null) {
                 signInLauncher.launch(signInIntent)
-            } else {
-                findNavController().navigate(R.id.back_to_startFragment)
             }
+        }
+
+        warpButton.setOnClickListener {
+            findNavController().navigate(R.id.connection_to_menuFragment)
         }
 
         wpButton.setOnClickListener {
@@ -61,8 +65,9 @@ class ConnectionFragment : Fragment() {
 
     // button connection state
 
-    private fun changeButtonStateWhenUserConnected(button: Button) {
+    private fun changeButtonStateWhenUserConnected(button: Button, warp: Button) {
         button.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.purple_500))
+        warp.visibility = View.VISIBLE
     }
 
     // SIGN IN
@@ -81,7 +86,7 @@ class ConnectionFragment : Fragment() {
         val response = result.idpResponse
         if (result.resultCode == RESULT_OK){
             val user = FirebaseAuth.getInstance().currentUser
-            changeButtonStateWhenUserConnected(connectionButton)
+            changeButtonStateWhenUserConnected(button = connectionButton, warp = warpButton)
         }
     }
 
@@ -93,6 +98,5 @@ class ConnectionFragment : Fragment() {
             .setAvailableProviders(providers)
             .build()
     }
-
 
 }
