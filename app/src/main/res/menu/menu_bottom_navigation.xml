@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/action_corporation"
+        android:title="CORPORATION"
+        android:icon="@drawable/corporation"/>
+
+    <item android:id="@+id/action_pi"
+        android:title="PI"
+        android:icon="@drawable/planets"/>
+
+    <item android:id="@+id/action_industry"
+        android:title="INDUSTRY"
+        android:icon="@drawable/industry"/>
+
+</menu>
