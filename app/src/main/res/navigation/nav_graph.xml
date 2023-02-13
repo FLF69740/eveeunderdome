@@ -15,11 +15,6 @@
             app:destination="@id/connectionFragment" />
     </fragment>
     <fragment
-        android:id="@+id/menuFragment"
-        android:name="com.example.eveunderdome.ui.fragments.MenuFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" />
-    <fragment
         android:id="@+id/connectionFragment"
         android:name="com.example.eveunderdome.ui.fragments.ConnectionFragment"
         android:label="fragment_connection"
@@ -30,8 +25,8 @@
         <action
             app:popUpTo="@id/startFragment"
             app:popUpToInclusive="false"
-            android:id="@+id/connection_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            android:id="@+id/go_to_MenuActivity"
+            app:destination="@id/MenuActivityDestination" />
     </fragment>
     <dialog
         android:id="@+id/wrongPasswordDialogFragment"
@@ -52,7 +47,14 @@
             app:argType="integer"
             android:defaultValue="0" />
     </fragment>
+
+    <activity
+        android:id="@+id/MenuActivityDestination"
+        android:name="com.example.eveunderdome.ui.activities.MenuActivity"
+        android:label="MenuActivityTitle" />
+
     <action
         android:id="@+id/action_global_globalFragment"
         app:destination="@id/globalFragment"/>
+
 </navigation>

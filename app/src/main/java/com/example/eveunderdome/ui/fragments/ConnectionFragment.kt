@@ -48,7 +48,7 @@ class ConnectionFragment : Fragment() {
         }
 
         warpButton.setOnClickListener {
-            findNavController().navigate(R.id.connection_to_menuFragment)
+            findNavController().navigate(R.id.go_to_MenuActivity)
         }
 
         wpButton.setOnClickListener {
