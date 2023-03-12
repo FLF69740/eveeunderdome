@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "833695253927",
+    "project_id": "eve-underdome",
+    "storage_bucket": "eve-underdome.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833695253927:android:1d5192141d6bce9f4be282",
+        "android_client_info": {
+          "package_name": "com.example.eveunderdome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833695253927-jhi6m6hl864rmk5busmed847rkrqh5ep.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eveunderdome",
+            "certificate_hash": "00a34787f21e7a7e649d8e1c0fb341248915264b"
+          }
+        },
+        {
+          "client_id": "833695253927-mbs420icfl8rir97b04a5kdt4t0iorqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDudaS2YD-dMbRlJ1bSmWS5dyU1Wgj04Zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833695253927-mbs420icfl8rir97b04a5kdt4t0iorqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
